@@ -1,8 +1,10 @@
 *.kml
 /dev/*
 .venv/
+.vscode/
 __pycache__/
 *.pyc
 /FSAE_track_generator/
 /dev/
 blender/*
+/deprecated/

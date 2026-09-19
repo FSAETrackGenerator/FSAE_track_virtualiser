@@ -1,0 +1,82 @@
+# Blender 4.2.23 LTS MTL File: 'left_cone.obj.blend'
+# www.blender.org
+
+newmtl initialShadingGroup
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+
+newmtl initialShadingGroup.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+
+newmtl lambert2SG
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd C:/Users/natha/Documents/FSAE_Track_Virtualiser/blender/Traffic Cone/Models and Textures/1_lambert2SG_BaseColor.png
+
+newmtl lambert2SG.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd C:/Users/natha/Documents/FSAE_Track_Virtualiser/blender/Traffic Cone/Models and Textures/1_lambert2SG_BaseColor.png
+
+newmtl lambert3SG
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd C:/Users/natha/Documents/FSAE_Track_Virtualiser/blender/Traffic Cone/Models and Textures/1_lambert3SG_BaseColor.png
+
+newmtl lambert3SG.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd C:/Users/natha/Documents/FSAE_Track_Virtualiser/blender/Traffic Cone/Models and Textures/1_lambert3SG_BaseColor.png
+
+newmtl lambert4SG
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd C:/Users/natha/Documents/FSAE_Track_Virtualiser/blender/Traffic Cone/Models and Textures/1_lambert4SG_BaseColor.png
+
+newmtl lambert4SG.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd C:/Users/natha/Documents/FSAE_Track_Virtualiser/blender/Traffic Cone/Models and Textures/1_lambert4SG_BaseColor.png
