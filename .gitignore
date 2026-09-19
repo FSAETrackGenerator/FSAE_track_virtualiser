@@ -3,3 +3,6 @@
 .venv/
 __pycache__/
 *.pyc
+/FSAE_track_generator/
+/dev/
+blender/*
