@@ -58,11 +58,20 @@ def gps_to_cartesian(lat, lon, alt, ref_lat, ref_lon, ref_alt=0.0):
     return x, y, z
 
 
+def rotate_xy(x, y, angle_rad):
+    """Rotate a local Cartesian (x, y) pair counter-clockwise by angle_rad around the origin."""
+    cos_a = math.cos(angle_rad)
+    sin_a = math.sin(angle_rad)
+    return x * cos_a - y * sin_a, x * sin_a + y * cos_a
+
+
 def _parse_name_prefix_idx_group(name):
     """
     Splits a placemark name like "purple_cone-1" into (prefix, idx, group).
     An optional "_<group>" suffix on the index (e.g. "left_cone-3_2") tags which
     chicane set a left/right cone belongs to; group is None when absent/invalid.
+    Names with no "-<idx>" suffix at all (cones outside any chicane, e.g. bare
+    "orange_cone") are returned unchanged as prefix, with idx=0 and group=None.
     """
     prefix = name
     idx = 0
@@ -555,6 +564,14 @@ if bpy is not None:
             precision=3,
         )
 
+        track_rotation: FloatProperty(
+            name="Track Rotation",
+            description="Rotate the parsed KML X/Y coordinates around the reference point before placing cones, to align the sampled track orientation with the scene's X/Y axes",
+            default=0.0,
+            subtype='ANGLE',
+            unit='ROTATION',
+        )
+
         filter_features: BoolProperty(
             name="Filter Known Features Only",
             description="Only import placemarks matching standard names (orange_cone, purple_cone, blue_cone, yellow_cone)",
@@ -859,6 +876,7 @@ if bpy is not None:
                 if f['type'].lower() not in {"left_cone", "right_cone"} or f.get('group') is None:
                     continue
                 x_rel, y_rel, _ = gps_to_cartesian(f['lat'], f['lon'], f['alt'], ref_lat, ref_lon, ref_alt)
+                x_rel, y_rel = rotate_xy(x_rel, y_rel, settings.track_rotation)
                 chicane_positions.setdefault(f['group'], []).append((f['idx'], x_rel + ref_x, y_rel + ref_y))
 
             chicane_headings = {}
@@ -901,8 +919,10 @@ if bpy is not None:
                 if settings.filter_features and c_type.lower() not in valid_prefixes:
                     continue
 
-                # Convert coordinates
+                # Convert coordinates, then rotate the local X/Y so the sampled track can be
+                # aligned with the scene's axes without needing to re-record the KML.
                 x_rel, y_rel, z_rel = gps_to_cartesian(f['lat'], f['lon'], f['alt'], ref_lat, ref_lon, ref_alt)
+                x_rel, y_rel = rotate_xy(x_rel, y_rel, settings.track_rotation)
                 world_x = x_rel + ref_x
                 world_y = y_rel + ref_y
                 world_z = z_rel + ref_z
@@ -1076,6 +1096,7 @@ if bpy is not None:
             if settings.ref_mode == 'MANUAL_NAME':
                 box.prop(settings, "custom_ref_name")
             box.prop(settings, "origin_cartesian")
+            box.prop(settings, "track_rotation")
 
             # 3. Raycasting & Track Surface Snapping
             box = layout.box()

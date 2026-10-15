@@ -5,6 +5,8 @@
 __pycache__/
 *.pyc
 /FSAE_track_generator/
+/FSAE-Track-Mapper/
+.html
 /dev/
 blender/*
 /deprecated/
