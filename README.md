@@ -1,6 +1,6 @@
 **What is it?**
 
-The **[FSAE_track_virtualiser](https://github.com/cakemun/FSAE_track_virtualiser)** is a Blender plugin that allows for the import and virtualisation of tracks from the .kml files produced by the **[FSAE_track_generator](https://github.com/cakemun/FSAE_track_generator)** and **[FSAE-Track-Mapper](https://github.com/cakemun/FSAE-Track-Mapper)**. The plugin allows for significant customisation of imported track features and data alignment.
+The **[FSAE_track_virtualiser](https://github.com/cakemun/FSAE_track_virtualiser)** is a Blender plugin that allows for the import and virtualisation of tracks from the .kml files produced by the **[FSAE_track_generator](https://github.com/FSAETrackGenerator/FSAE_track_generator)** and **[FSAE-Track-Mapper](https://github.com/FSAETrackGenerator/FSAE-Track-Mapper)**. The plugin allows for significant customisation of imported track features and data alignment.
 
 **Who is it for?**
 
